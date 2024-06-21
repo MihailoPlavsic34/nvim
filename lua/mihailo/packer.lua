@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   use ('tpope/vim-fugitive')
   use {'williamboman/mason.nvim'}
   use {'williamboman/mason-lspconfig.nvim'}
+  use {'mfussenegger/nvim-lint'}
 
   use {
   'VonHeikemen/lsp-zero.nvim',

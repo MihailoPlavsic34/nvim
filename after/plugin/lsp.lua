@@ -1,18 +1,14 @@
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.setup_servers({'jedi_language_server', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls' })
+lsp_zero.setup_servers({'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls' })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'jedi_language_server', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls' },
+  ensure_installed = {'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls' },
   handlers = {
     lsp_zero.default_setup,
   },
 })
-
---require('lspconfig').jedi_language_server.setup({})
---require('lspconfig').pylyzer.setup({})
---require('lspconfig').rust_analyzer.setup({})
 
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
