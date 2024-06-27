@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
 vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
 vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
 
-vim.keymap.set("n", "<C-t>", function() terminal.gotoTerminal(0) end)
+vim.keymap.set("n", "<C-t>", function() terminal.gotoTerminal(1) end)
 vim.keymap.set("n", "<C-h>", function() terminal.gotoTerminal(2) end)
 vim.keymap.set("n", "<C-n>", function() terminal.gotoTerminal(3) end)
 -- vim.keymap.set("n", "<C-s>", function() terminal.gotoTerminal(4) end)
