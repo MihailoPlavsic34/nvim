@@ -4,7 +4,7 @@ lsp_zero.setup_servers({ 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dock
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls' },
+    ensure_installed = { 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls', 'terraformls' },
     handlers = {
         lsp_zero.default_setup,
     },
