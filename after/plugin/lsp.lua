@@ -1,30 +1,31 @@
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.setup_servers({ 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls'})
+lsp_zero.setup_servers({ 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls', 'gopls', 'html' })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls', 'terraformls' },
+    ensure_installed = { 'pyright', 'rust_analyzer', 'yamlls', 'tsserver', 'dockerls', 'lua_ls', 'bashls', 'terraformls', 'gopls', 'html' },
     handlers = {
         lsp_zero.default_setup,
     },
 })
+
+
 require("lspconfig").terraformls.setup({
     init_options = {
         experimentalFeatures = {
             prefillRequiredFields = true,
         },
-        -- terraform = {
-        --     path = "/usr/bin/terraform-ls"
-        -- }
     }
 })
 
 require('lspconfig').yamlls.setup {
     settings = {
         yaml = {
+            schemaStore = {
+                enable = true
+            },
             schemas = {
-                kubernetes = "*.yaml",
                 ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
                 ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
                 ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
@@ -33,10 +34,11 @@ require('lspconfig').yamlls.setup {
                 ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
                 ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
                 ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
-                ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
                 ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
                 ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
                 ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+                ["https://bitbucket.org/atlassianlabs/atlascode/raw/ad68df731f5c0e6baf2cdc37b5a8d86eb3449e3d/resources/schemas/pipelines-schema.json"] = "*bitbucket*.{yml,yaml}",
+                kubernetes = "*.yaml",
             },
         },
     }
