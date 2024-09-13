@@ -1,16 +1,16 @@
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.setup_servers({ 'pyright', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'gopls', 'html' })
+lsp_zero.setup_servers({ 'pylsp', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'gopls', 'html' })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'pyright', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'terraformls', 'gopls', 'html', 'htmx' },
+    ensure_installed = { 'pylsp', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'terraformls', 'gopls', 'html', 'htmx' },
     handlers = {
         lsp_zero.default_setup,
     },
 })
 
-require("lspconfig").htmx.setup{}
+require("lspconfig").htmx.setup {}
 
 require("lspconfig").terraformls.setup({
     init_options = {
@@ -19,6 +19,25 @@ require("lspconfig").terraformls.setup({
         },
     }
 })
+
+require("lspconfig").pylsp.setup {
+    settings = {
+        pylsp = {
+            plugins = {
+                flake8 = {
+                    enabled = true,
+                    ignore = { 'E501' }
+                },
+                pycodestyle = {
+                    enabled = false
+                },
+                autopep8 = {
+                    enabled = true
+                }
+            }
+        }
+    }
+}
 
 require('lspconfig').yamlls.setup {
     settings = {
