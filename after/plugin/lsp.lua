@@ -1,10 +1,10 @@
 local lsp_zero = require('lsp-zero')
 
-lsp_zero.setup_servers({ 'pylsp', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'gopls', 'html' })
+lsp_zero.setup_servers({ 'pylsp', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'gopls', 'html', 'ts_ls' })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'pylsp', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'terraformls', 'gopls', 'html', 'htmx' },
+    ensure_installed = { 'pylsp', 'rust_analyzer', 'yamlls', 'dockerls', 'lua_ls', 'bashls', 'terraformls', 'gopls', 'html', 'htmx', 'ts_ls' },
     handlers = {
         lsp_zero.default_setup,
     },
