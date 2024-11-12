@@ -12,7 +12,7 @@ require('mason-lspconfig').setup({
 })
 
 require 'lspconfig'.perlpls.setup {
-	filetypes = {"perl", "*.t"},
+	filetypes = {"perl", "t", "rules"},
 	settings = {
 		perl = {
 			perlcritic = {
