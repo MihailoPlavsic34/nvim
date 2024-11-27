@@ -13,13 +13,13 @@ require('mason-lspconfig').setup({
 
 require 'lspconfig'.perlpls.setup {
 	filetypes = {"perl", "t", "rules"},
-	settings = {
-		perl = {
-			perlcritic = {
-				enabled = true
-			}
-		}
-	}
+	-- settings = {
+	-- 	perl = {
+	-- 		perlcritic = {
+	-- 			perlcritic = "~/.perlcritic"
+	-- 		}
+	-- 	}
+	-- }
 }
 
 require("lspconfig").htmx.setup {}
