@@ -5,3 +5,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.hcl"},
+  callback = function()
+    vim.bo.filetype = "terraform"
+  end,
+})
+
